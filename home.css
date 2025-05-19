@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --accent-color: #e74c3c;
+    --accent-dark: #c0392b;
+    --background-color: #111111;
+    --container-background: #1a1a1a;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+    --progress-fill: #e74c3c;
+    --progress-bg: #333333;
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 15px rgba(231, 76, 60, 0.5);
+    --border-radius: 8px;
+    --transition-default: all 0.3s ease;
+    --font-primary: 'Georgia', serif;
+    --font-accent: 'Arial Black', sans-serif;
+} 
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(231, 76, 60, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
+}
+
+.content {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    background: var(--container-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-default);
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
+}
+
+/* Header Styles */
+.game-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+}
+
+.logo h1 span {
+    color: var(--accent-color);
+}
+
+/* Score Container */
+.score-container {
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    border: 1px solid var(--accent-color);
+    text-align: center;
+}
+
+.score-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.score-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+#score {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: var(--font-accent);
+    color: white;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+
+/* Game Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.game-card {
+    background: linear-gradient(145deg, #222222, #1a1a1a);
+    color: white;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5), var(--shadow-glow);
+    border-color: var(--accent-color);
+}
+
+.game-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.game-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+    font-family: var(--font-accent);
+}
+
+.game-card p {
+    margin: 0 0 15px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.high-score {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/* Game specific colors */
+.dice-game {
+    border-bottom: 3px solid #e74c3c;
+}
+
+.quiz-game {
+    border-bottom: 3px solid #3498db;
+}
+
+.word-game {
+    border-bottom: 3px solid #2ecc71;
+}
+
+.math-game {
+    border-bottom: 3px solid #9b59b6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 20px;
+    }
+    
+    .game-card {
+        padding: 20px;
+    }
+}
+
+/* Animation for score */
+@keyframes scorePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.score-update {
+    animation: scorePulse 0.5s ease;
+}
