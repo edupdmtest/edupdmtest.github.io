@@ -1,0 +1,334 @@
+.game-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(231, 76, 60, 0.3);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  color: #e74c3c;
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+}
+
+.logo-text span {
+  color: #e74c3c;
+}
+
+.nav-games {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  color: #aaa;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.nav-link:hover {
+  background: rgba(231, 76, 60, 0.1);
+  color: white;
+}
+
+.nav-link i {
+  font-size: 1.2rem;
+  margin-bottom: 3px;
+}
+
+.link-text {
+  font-family: 'Arial', sans-serif;
+}
+
+.ddak-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ddak-chip {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  width: 60px;  /* Slightly wider */
+  height: 50px;
+  border-radius: 25px;  /* Now pill-shaped instead of circle */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* Better spacing */
+  padding: 0 12px;  /* Internal padding */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  position: relative;
+  border: 2px solid #f1c40f;
+}
+
+.chip-icon {
+  color: rgba(255,255,255,0.9);
+  font-size: 1.2rem;
+  margin-right: 5px;  /* Added spacing between icon and number */
+}
+
+.ddak-amount {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  /* Removed absolute positioning */
+}
+
+.ddak-label {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Animation for DDAK updates */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.grow {
+  animation: pulse 0.3s ease;
+}
+
+/* Add body padding to prevent content hiding */
+body {
+  padding-top: 80px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-games {
+    gap: 8px;
+  }
+  
+  .nav-link {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .ddak-chip {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .ddak-label {
+    display: none;
+  }
+}
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --accent-color: #e74c3c;
+    --accent-dark: #c0392b;
+    --background-color: #111111;
+    --container-background: #1a1a1a;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 15px rgba(231, 76, 60, 0.5);
+    --border-radius: 8px;
+    --transition-default: all 0.3s ease;
+    --font-primary: 'Georgia', serif;
+    --font-accent: 'Arial Black', sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(231, 76, 60, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(231, 76, 60, 0.1) 0%, transparent 20%);
+}
+
+.game-container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    background: var(--container-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
+}
+
+h1, h2 {
+    font-family: var(--font-accent);
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="number"], input[type="button"] {
+    font-family: var(--font-primary);
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    border: none;
+    margin: 5px 0;
+    transition: var(--transition-default);
+}
+
+input[type="number"] {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    width: 100px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-glow);
+}
+
+input[type="button"] {
+    background: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+input[type="button"]:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+#message, #indice {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+#message {
+    background: rgba(231, 76, 60, 0.2);
+    border-left: 4px solid var(--accent-color);
+}
+
+#indice {
+    background: rgba(52, 152, 219, 0.2);
+    border-left: 4px solid #3498db;
+}
+
+#history {
+    background: rgba(0,0,0,0.3);
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: rgba(231, 76, 60, 0.3);
+    padding: 10px;
+    text-align: left;
+    font-family: var(--font-accent);
+    font-size: 0.9rem;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+    
+    #history {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 20px;
+    }
+    
+    input[type="button"] {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+}
